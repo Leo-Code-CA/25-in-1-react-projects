@@ -1,0 +1,19 @@
+.star-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.active {
+    color: #fff700;
+}
+
+.inactive {
+    color: black;
+}
