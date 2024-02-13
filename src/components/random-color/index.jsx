@@ -45,7 +45,7 @@ export default function RandomColor() {
 
     return (
         <div 
-        className="container"
+        className="colorContainer"
         style={{
             background: color
         }}>
