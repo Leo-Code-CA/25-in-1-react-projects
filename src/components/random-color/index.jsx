@@ -39,8 +39,8 @@ export default function RandomColor() {
 
       }, [typeOfColor]);
 
-    console.log(color);
-    console.log(typeOfColor);
+    // console.log(color);
+    // console.log(typeOfColor);
 
 
     return (

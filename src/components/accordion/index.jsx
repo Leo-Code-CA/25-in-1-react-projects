@@ -26,9 +26,9 @@ export default function Accordion() {
         setMultiple(cpyMultiple)
     }
 
-    console.log(`selected is: ${selected}`);
-    console.log(`multiple is: ${multiple}`);
-    console.log(`multienable is: ${enableMultipleSelection}`)
+    // console.log(`selected is: ${selected}`);
+    // console.log(`multiple is: ${multiple}`);
+    // console.log(`multienable is: ${enableMultipleSelection}`)
 
     return (
         <div className="wrapper">
