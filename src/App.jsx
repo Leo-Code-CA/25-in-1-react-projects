@@ -6,6 +6,7 @@ import LoadMoreData from "./components/load-more-data/index.jsx";
 import menus from "./components/tree-view/data.js";
 import TreeView from "./components/tree-view/index.jsx";
 import QrCodeGenerator from "./components/qr-code-generator/index.jsx";
+import LightDarkMode from "./components/light-dark-mode/index.jsx";
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
             <LoadMoreData />
             <TreeView menus={menus}/>
             <QrCodeGenerator />
+            <LightDarkMode />
         </>
     );
 }
