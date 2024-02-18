@@ -5,6 +5,7 @@ import ImageSlider from './components/image-slider/index.jsx';
 import LoadMoreData from "./components/load-more-data/index.jsx";
 import menus from "./components/tree-view/data.js";
 import TreeView from "./components/tree-view/index.jsx";
+import QrCodeGenerator from "./components/qr-code-generator/index.jsx";
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
             <ImageSlider url={'https://picsum.photos/v2/list'} limit={10} page="1"/>
             <LoadMoreData />
             <TreeView menus={menus}/>
+            <QrCodeGenerator />
         </>
     );
 }

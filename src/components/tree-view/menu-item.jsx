@@ -8,9 +8,9 @@ export default function MenuItem({ item }) {
 
     function handleToggleChildren(getCurrentLabel) {
 
-        console.log({...displayCurrentChildren});
-        console.log(getCurrentLabel);
-        console.log(!displayCurrentChildren[getCurrentLabel]);
+        // console.log({...displayCurrentChildren});
+        // console.log(getCurrentLabel);
+        // console.log(!displayCurrentChildren[getCurrentLabel]);
 
         setDisplayCurrentChildren({
             ...displayCurrentChildren,
@@ -19,7 +19,7 @@ export default function MenuItem({ item }) {
 
     }
 
-    console.log(displayCurrentChildren);
+    // console.log(displayCurrentChildren);
 
     return (
         <li>
