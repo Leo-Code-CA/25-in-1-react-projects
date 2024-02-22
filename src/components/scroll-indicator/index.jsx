@@ -41,8 +41,8 @@ export default function ScrollIndicator({ url }) {
                 }
     
             } catch (error) {
-                console.log(error);
-                setErrorMessage(error.message);
+                // console.log(error.name);
+                error.name === "AbortError" ? null : setErrorMessage(error.message);
                 setLoading(false);
             }
     
@@ -62,8 +62,7 @@ export default function ScrollIndicator({ url }) {
         };
     });
 
-    // FOR DEVELOPMENT PURPOSE ONLY!
-    if (errorMessage && errorMessage !== 'The operation was aborted.') {
+    if (errorMessage) {
         return <div>An error occured: {errorMessage}</div>;
     }
 

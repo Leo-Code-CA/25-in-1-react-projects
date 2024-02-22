@@ -30,7 +30,7 @@ export default function LoadMoreData() {
                 }
             
             } catch (e) {
-                console.log(e);
+                // console.log(e);
                 setLoading(false);
             }
         }
@@ -50,7 +50,7 @@ export default function LoadMoreData() {
         return <div>Data is loading...</div>;
     }
 
-    console.log(products.length);
+    // console.log(products.length);
 
     return (
         <div className="data-container">
