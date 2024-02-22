@@ -1,0 +1,59 @@
+.modal {
+    position: fixed;
+    z-index: 1;
+    padding-top: 150px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: lavender;
+    text-align: center;
+}
+
+.modal-content {
+    position: relative;
+    background-color: rgb(155, 109, 181);
+    margin: auto;
+    padding: 0;
+    border: 1px solid red;
+    width: 80%;
+    animation: modal .5s;
+}
+
+.close-modal {
+    cursor: pointer;
+    font-size: 40px;
+    float: right;
+    font-weight: bold;
+}
+
+.modal-heading {
+    padding: 4px 16px;
+    background-color: aquamarine;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-footer {
+    padding: 10px 16px;
+    background-color: aquamarine;
+}
+
+@keyframes modal {
+    from {
+        top: -200px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
