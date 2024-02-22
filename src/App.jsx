@@ -10,6 +10,7 @@ import LightDarkMode from "./components/light-dark-mode/index.jsx";
 import ScrollIndicator from "./components/scroll-indicator/index.jsx";
 import TabTest from "./components/custom-tabs/tab-test.jsx";
 import ModalTest from "./components/custom-modal-popup/modal-test.jsx";
+import GitHubProfileFinder from "./components/github-profile-finder/index.jsx";
 
 export default function App() {
 
@@ -29,6 +30,7 @@ export default function App() {
             <ScrollIndicator url="https://dummyjson.com/products?limit=100"/>
             <TabTest />
             <ModalTest />
+            <GitHubProfileFinder />
         </>
     );
 }

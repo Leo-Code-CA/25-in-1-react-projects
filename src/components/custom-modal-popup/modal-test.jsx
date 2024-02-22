@@ -24,7 +24,7 @@ export default function ModalTest() {
                 <Modal
                 onClose={handleClose} 
                 body={<div>Customized body content</div>}
-                heading={<h1>Customized heading</h1>}
+                heading="Customized heading"
                 footer={<b>Customized footer</b>}
                 id="customID"/>
             }
