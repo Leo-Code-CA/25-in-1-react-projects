@@ -15,6 +15,7 @@ import SearchAutocomplete from "./components/search-autocomlete/index.jsx";
 import TicTacToe from "./components/tic-tac-toe/index.jsx";
 import FeatureFlags from "./components/feature-flag/index.jsx";
 import FeatureFlagGlobalState from "./components/feature-flag/context/index.jsx";
+import TryCustomHookFetch from "./components/use-fetch/test.jsx";
 
 export default function App() {
 
@@ -39,7 +40,8 @@ export default function App() {
             <TicTacToe /> 
             <FeatureFlagGlobalState>
                 <FeatureFlags /> 
-            </FeatureFlagGlobalState>    
+            </FeatureFlagGlobalState> 
+            <TryCustomHookFetch />  
         </>
     );
 }
