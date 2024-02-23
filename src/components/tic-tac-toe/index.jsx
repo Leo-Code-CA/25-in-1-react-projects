@@ -7,7 +7,7 @@ export default function TicTacToe() {
     const [isXturn, setIsXTurn] = useState(true);
     const [status, setStatus] = useState("");
 
-    console.log(squares);
+    // console.log(squares);
 
     function handleClick(getCurrentSquare) {
 
