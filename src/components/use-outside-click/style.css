@@ -1,0 +1,6 @@
+.window-container {
+    height: 20vh;
+    border: 1px solid;
+    width: max-content;
+    margin: 2rem auto;
+}

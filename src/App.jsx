@@ -16,6 +16,7 @@ import TicTacToe from "./components/tic-tac-toe/index.jsx";
 import FeatureFlags from "./components/feature-flag/index.jsx";
 import FeatureFlagGlobalState from "./components/feature-flag/context/index.jsx";
 import TryCustomHookFetch from "./components/use-fetch/test.jsx";
+import TryCustomHookOutsideClick from "./components/use-outside-click/test.jsx";
 
 export default function App() {
 
@@ -41,7 +42,8 @@ export default function App() {
             <FeatureFlagGlobalState>
                 <FeatureFlags /> 
             </FeatureFlagGlobalState> 
-            <TryCustomHookFetch />  
+            <TryCustomHookFetch />
+            <TryCustomHookOutsideClick />  
         </>
     );
 }
