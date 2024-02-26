@@ -20,6 +20,7 @@ import TryCustomHookOutsideClick from "./components/use-outside-click/test.jsx";
 import TryCustomHookWindowResize from "./components/use-window-resize/test.jsx";
 import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom/index.jsx";
 import ScrollToSection from "./components/scroll-to-top-and-bottom/scroll-to-section.jsx";
+import Weather from "./weather-app/index.jsx";
 
 export default function App() {
 
@@ -50,6 +51,7 @@ export default function App() {
             <TryCustomHookWindowResize />
             <ScrollToTopAndBottom />
             <ScrollToSection />
+            <Weather />
         </>
     );
 }
