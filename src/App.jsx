@@ -18,6 +18,8 @@ import FeatureFlagGlobalState from "./components/feature-flag/context/index.jsx"
 import TryCustomHookFetch from "./components/use-fetch/test.jsx";
 import TryCustomHookOutsideClick from "./components/use-outside-click/test.jsx";
 import TryCustomHookWindowResize from "./components/use-window-resize/test.jsx";
+import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom/index.jsx";
+import ScrollToSection from "./components/scroll-to-top-and-bottom/scroll-to-section.jsx";
 
 export default function App() {
 
@@ -45,7 +47,9 @@ export default function App() {
             </FeatureFlagGlobalState> 
             <TryCustomHookFetch />
             <TryCustomHookOutsideClick />
-            <TryCustomHookWindowResize />  
+            <TryCustomHookWindowResize />
+            <ScrollToTopAndBottom />
+            <ScrollToSection />
         </>
     );
 }

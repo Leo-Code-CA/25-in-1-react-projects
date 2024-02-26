@@ -4,7 +4,7 @@ export default function TryCustomHookWindowResize() {
 
     const windowSize = useWindowResize();
     const { width, height } = windowSize;
-    console.log(useWindowResize());
+    // console.log(useWindowResize());
 
     return (
         <div>
