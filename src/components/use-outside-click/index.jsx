@@ -6,11 +6,8 @@ export default function useOutisdeClick(ref, handler) {
     useEffect(() => {
 
         function listener(e) {
-
             if (!ref.current || ref.current.contains(e.target)) return;
-
             handler();
-
         }
 
         document.addEventListener('mousedown', listener);
