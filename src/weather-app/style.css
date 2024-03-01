@@ -1,3 +1,14 @@
+.weather-app {
+    text-align: center;
+    margin: 50px auto 0;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 20px;
+    height: 470px;
+    padding: 20px 15px;
+    background-color: rgb(0, 255, 166);
+}
+
 .search-engine {
     width: 100%;
     display: flex;
@@ -28,4 +39,52 @@
     outline: none;
     cursor: pointer;
     padding: 12px 15px;
+}
+
+.weather-loading {
+    font-size: 60px;
+    font-weight: bolder;
+    color: black;
+}
+
+.city-name {
+    margin-bottom: 10px;
+}
+
+.weather-date {
+    font-size: 18px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.temperature {
+    font-size: 64px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.weather-description {
+    color: black;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.weather-columns {
+    display: flex;
+    align-items: center;
+    line-height: 1px;
 }
