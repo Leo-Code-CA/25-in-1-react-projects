@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Search from "./search";
+import Search from "./search.jsx";
 import { weatherCodes } from './data.js';
 import './style.css';
 
