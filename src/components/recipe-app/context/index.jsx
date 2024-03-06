@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const GlobalContext = createContext(null);
 
@@ -7,6 +8,10 @@ export default function GlobalState({ children }) {
     const [searchParam, setSearchParam] = useState('');
     const [loading, setLoading] = useState(false);
     const [recipeList, setRecipeList] = useState([]);
+    const [recipeDetails, setRecipeDetails] = useState(null);
+    const [favoritesList, setFavoritesList] = useState([]);
+
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
 
@@ -21,6 +26,7 @@ export default function GlobalState({ children }) {
                 setRecipeList(data?.data?.recipes);
                 setLoading(false);
                 setSearchParam("");
+                navigate('/');
             }
         } catch (error) {
             console.log(error);
@@ -28,11 +34,36 @@ export default function GlobalState({ children }) {
             setSearchParam("");
         }
 
-        console.log(recipeList);
+        // console.log(recipeList);
+    }
+
+    function handleAddToFavorites(getCurrentItem) {
+
+        // console.log(getCurrentItem);
+        let copyFavoritesList = [...favoritesList];
+        const index = copyFavoritesList.findIndex(item => item.id === getCurrentItem.id);
+
+        if (index === -1) {
+            copyFavoritesList.push(getCurrentItem);
+        } else {
+            copyFavoritesList.splice(getCurrentItem, 1);
+        }
+        
+        setFavoritesList(copyFavoritesList);
+
     }
     
     return (
-        <GlobalContext.Provider value={{ searchParam, loading, recipeList, setSearchParam, handleSubmit }}>
+        <GlobalContext.Provider value={{ 
+            searchParam, 
+            loading, 
+            recipeList, 
+            setSearchParam, 
+            handleSubmit,
+            recipeDetails,
+            setRecipeDetails,
+            handleAddToFavorites,
+            favoritesList }}>
             { children }
         </GlobalContext.Provider>
     );

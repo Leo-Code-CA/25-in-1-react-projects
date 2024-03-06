@@ -36,8 +36,8 @@ export default function Weather() {
             const secondResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${selectedCity.lat}&longitude=${selectedCity.long}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`);
             const forecastData = await secondResponse.json();
 
-            console.log(forecastData);
-            console.log(weatherCodes[weatherData?.forecast.current.weather_code]);
+            // console.log(forecastData);
+            // console.log(weatherCodes[weatherData?.forecast.current.weather_code]);
 
             if (forecastData) {
 
