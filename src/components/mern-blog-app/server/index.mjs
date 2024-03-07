@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import blogRouter from './routes/blog.mjs';
 
 const app = express();
 const PORT = 3000;
@@ -13,6 +14,7 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/blogs', blogRouter);
 
 app.use('/', (req, res) => {
 	res.send('Hey Girl');

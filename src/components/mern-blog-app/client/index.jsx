@@ -1,7 +1,13 @@
+import GlobalState from "./context";
+
 export default function MernBlogApp() {
 
 
     return (
-        <div></div>
+        <GlobalState>
+            <div>
+                
+            </div>
+        </GlobalState>
     );
 }
