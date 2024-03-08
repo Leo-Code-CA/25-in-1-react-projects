@@ -18,7 +18,7 @@ const blog_list = async (req, res, next) => {
 	return res.status(200).json({ blogList });
 };
 // Handle create book on POST.
-const blog_create = async (req, res, next) => {
+const blog_create = async (req, res) => {
 	const { title, description } = req.body;
 	const currentDate = new Date();
 
@@ -65,7 +65,8 @@ const blog_delete = async (req, res, next) => {
 };
 
 // Handle blog update on PUT.
-const blog_update = async (req, res, next) => {
+const blog_update = async (req, res) => {
+
 	const id = req.params.id;
 
 	const { title, description } = req.body;
@@ -85,7 +86,7 @@ const blog_update = async (req, res, next) => {
 		return res.status(404).json({message: "Couldn't find the blog to update. Please try again"});
 	}
 
-	return res.status(200).json({blogToUpdate});
+	return res.status(200).json({ blogToUpdate });
 };
 
 const blog_controller = {

@@ -24,7 +24,7 @@ import Weather from "./components/weather-app/index.jsx";
 import RecipeApp from "./components/recipe-app/index.jsx";
 import ShoppingCartApp from "./components/shopping-cart-app/index.jsx";
 import ExpenseTrackerApp from "./components/expense-tracker-app/index.jsx";
-import MernBlogApp from "./components/mern-blog-app/index.jsx";
+import MernBlogApp from "./components/mern-blog-app/client/index.jsx";
 
 export default function App() {
 
