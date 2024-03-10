@@ -2,7 +2,8 @@ import { useContext, useEffect } from "react";
 import { GlobalContext } from "../context";
 import axios from "axios";
 import classes from './style.module.css';
-import { FaTrash, FaEdit } from 'C:/Users/leono/OneDrive/Documents/Code/Projects/project19_25_in_1_react/25-in-1-react-projects/node_modules/react-icons/fa/index.mjs';
+// import { FaTrash, FaEdit } from 'C:/Users/leono/OneDrive/Documents/Code/Projects/project19_25_in_1_react/25-in-1-react-projects/node_modules/react-icons/fa/index.mjs';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 
