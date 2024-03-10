@@ -1,0 +1,69 @@
+React Wellness Website OR React N Relax ;D
+
+NAVBAR:
+- Logo
+- Home
+- Disover (main different components)
+- Refill (recipe)
+- Create (app component)
+- Plan (expense tracker)
+- Light or dark theme switch
+- Scroll indicator (right below the navbar) (6. Scroll indicator )
+
+SIDEBAR:
+- Search bar (for the whole website) (8. search autocomplete)
+- Weather app (dream city) (2. weather app)
+- Feature Flag (filter home page components) (3. feature flags)
+- TreeView (for the whole website with the different components) (4. treeview)
+- Scroll top and bottom arrows (7. scroll top and bottom)
+
+
+HOME PAGE:
+- Positive affirmation
+
+
+DISCOVER PAGE:
+- find some inspiring projects / project you'd like to contribute to (10. github profile finder)
+- what's your favorite color and it's meaning / pick a random color and discover its meaning / something empowering about you (14. random color)
+- did you know? positive facts about the world (15. accordion)
+- scan random qr code that brings you to new articles to read? (17.QR code)
+
+RELAX PAGE:
+- favorite animal or dog breed picture slider (11. image slider)
+- take a break and play (12. tic-tac-toe)
+- do you feel more like cartoon / failarmy / cute animals (16. custom tabs)
+- fetch fun pictures and do a photo gallery with load more functionnality (18. load more data)
+
+
+RECIPE PAGE:
+- what's your favortie comfort food? or favorite food and let's bake/ cook something tasty with it!
+- recipe app (5. recipe app)
+
+
+CREATE PAGE:
+- add your own wellness mini app in this app (13. mern stack app)
+
+
+PLAN PAGE:
+- What'd you like to get for yourself (list) and how much does it costs
+- Sort by importance order
+- How much do you earn
+- How much you could try to put aside
+- how much you spend on unnecessary things?
+But everything is not only about money:
+- what free things would you like to do for you:
+- what expenses have you done lately 
+(17. expense tracker app)
+
+Things I want to fight for list (carrousel?) with add to the cart functionnality
+Things I don't want anymore in my life with remove functionnality
+(20. add to cart)
+
+
+POPUP MODAL: (1. popup modal)
+- rate the app (9. star rating)
+
+CUSTOM HOOKS TO USE THROUGHOUT THE WEBSITE:
+- useFetch for all the api calls (21. useFetch)
+- useOutsideClick to close the popup (22. useoutsideclick)
+- useWindowResize for responsiveness (23. useWindowResize)
