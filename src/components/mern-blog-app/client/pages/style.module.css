@@ -1,0 +1,31 @@
+.wrapper {
+    padding: 30px;
+}
+
+.wrapper h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+}
+
+.blogListWrapper {
+    padding: 30px;
+}
+
+.blogList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.blogList div {
+    padding: 10px;
+    border: 1px solid red;
+}
