@@ -1,0 +1,6 @@
+.scrollTracker {
+	/* width: 100%; */
+	flex: 1;
+	border: 0.1rem solid;
+	text-align: center;
+}

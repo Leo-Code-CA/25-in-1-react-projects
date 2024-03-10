@@ -3,7 +3,7 @@ import TicTacToe from '../tic-tac-toe/index.jsx';
 import RandomColorGenerator from '../random-color/index.jsx';
 import Accordion from '../accordion/index.jsx';
 import TreeView from '../tree-view/index.jsx';
-import { FeatureFlagsContext } from './context';
+import { FeatureFlagsContext } from './context/index.jsx';
 import { useContext } from 'react';
 import { menus } from '../tree-view/data.js';
 

@@ -1,0 +1,10 @@
+.toggleMenu {
+	background-color: black;
+	border: 0.05rem solid;
+	padding: 0.5rem;
+	color: white;
+	aspect-ratio: 1 / 1;
+	font-size: 1rem;
+	border-radius: 0.3rem;
+	cursor: pointer;
+}

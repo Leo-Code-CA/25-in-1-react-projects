@@ -1,0 +1,40 @@
+.navbar {
+	display: flex;
+	flex-wrap: wrap;
+	position: fixed;
+	top: 0;
+}
+
+.navbar--small {
+	right: 0;
+	width: 75%;
+}
+
+.navbar--large {
+	left: 0;
+	width: 100%;
+}
+
+.navbar__wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 1rem;
+	padding: 0.5rem;
+	align-items: center;
+}
+
+.navbar__wrapper ul {
+	list-style-type: none;
+	display: flex;
+	gap: 1rem;
+}
+
+.navbar__wrapper ul li a {
+	text-decoration: none;
+	color: black;
+}
+
+.navbar__wrapper h1 {
+	flex-grow: 1;
+}

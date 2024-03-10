@@ -1,0 +1,19 @@
+.sidebar {
+	top: 0;
+	left: 0;
+	position: fixed;
+	border: 0.05rem solid;
+	width: 25%;
+	height: 100vh;
+	background-color: lavender;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.sidebar__titleAndToggle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

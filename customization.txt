@@ -4,16 +4,17 @@ NAVBAR:
 - Logo
 - Home
 - Disover (main different components)
-- Refill (recipe)
+- Energize (recipe)
 - Create (app component)
 - Plan (expense tracker)
+- Relax 
 - Light or dark theme switch
 - Scroll indicator (right below the navbar) (6. Scroll indicator )
 
 SIDEBAR:
 - Search bar (for the whole website) (8. search autocomplete)
 - Weather app (dream city) (2. weather app)
-- Feature Flag (filter home page components) (3. feature flags)
+- Feature Flag (filter home page components) (3. feature flags) INSIDE TREE VIEW FOR CURRENT PAGE
 - TreeView (for the whole website with the different components) (4. treeview)
 - Scroll top and bottom arrows (7. scroll top and bottom)
 
