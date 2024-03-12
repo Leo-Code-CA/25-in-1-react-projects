@@ -24,10 +24,19 @@
 	align-items: center;
 }
 
+.navbar__wrapper .searchBar {
+	width: 15%;
+}
+
+.navbar__wrapper .searchBar__inputWrapper {
+	border: 0.05rem solid;
+}
+
 .navbar__wrapper ul {
 	list-style-type: none;
 	display: flex;
 	gap: 1rem;
+	flex-grow: 1;
 }
 
 .navbar__wrapper ul li a {

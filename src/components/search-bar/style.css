@@ -1,83 +1,87 @@
 /* GLOBAL SEARCHBAR STYLING */
 .searchBar {
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: relative;
+	height: max-content;
 }
 
 /* SEARCHBAR FORM (INPUT AND BUTTON) STYLING */
 .searchBar__form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+	height: 100%;
 }
 
 .searchBar__form label {
-    font-weight: bold;
-    font-size: 1.1rem;
+	font-weight: bold;
+	font-size: 1.1rem;
 }
 
 .searchBar__inputWrapper {
-    display: flex;
-    overflow: hidden;
-    border-radius: 0.3rem;
-    width: 100%;
+	display: flex;
+	overflow: hidden;
+	border-radius: 0.3rem;
+	width: 100%;
 }
 
 .searchBar__inputWrapper--active {
-    border: 0.05rem solid;
+	border: 0.05rem solid;
 }
 
 .searchBar__inputWrapper input {
-    padding: 0.4rem;
-    border: none;
-    outline: none;
-    min-width: 0;
-    flex-grow: 1;
+	padding: 0.4rem;
+	border: none;
+	outline: none;
+	min-width: 0;
+	flex-grow: 1;
 }
 
 .searchBar__inputWrapper button {
-    border: none;
-    padding: 0.2rem 0.5rem;
-    cursor: pointer;
-    background-color: aquamarine;
-    min-width: 0;
+	border: none;
+	padding: 0.2rem 0.5rem;
+	cursor: pointer;
+	background-color: aquamarine;
+	min-width: 0;
 }
 
 .searchBar__inputWrapper button svg {
-    height: 100%;
+	height: 100%;
 }
 
 /* SEARCHBAR DROPDOWN STYLING */
 .searchBar__dropdown {
-    overflow: hidden;
-    border-radius: 0 0 0.3rem 0.3rem;
-    background-color: white;
-    position: absolute;
-    top: 100%;
-    width: 100%;
+	overflow: hidden;
+	border-radius: 0 0 0.3rem 0.3rem;
+	background-color: white;
+	position: absolute;
+	top: 100%;
+	width: 100%;
 }
 
 .searchBar__dropdown--active {
-    border: 0.05rem solid;
-    border-top: 0;
+	border: 0.05rem solid;
+	border-top: 0;
+	max-height: 50vh;
+	overflow-y: auto;
 }
 
 .searchBar__dropdown ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
 }
 
 .searchBar__dropdown ul li {
-    padding: 0.3rem;
+	padding: 0.3rem;
 }
 
 .searchBar__dropdown ul li:hover {
-    background-color: aquamarine;
-    padding: 0.3rem;
+	background-color: aquamarine;
+	padding: 0.3rem;
 }

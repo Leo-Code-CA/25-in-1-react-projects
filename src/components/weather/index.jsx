@@ -6,7 +6,7 @@ import './style.css';
 
 export default function Weather() {
 
-    const [weatherSearchParams, setWeatherSearchParams] = useState("Vancouver");
+    const [weatherSearchParams, setWeatherSearchParams] = useState("");
     const [selectedCity, setSelectedCity] = useState(null);
     const { data: citiesFetchData, error: citiesFetchError, pending: citiesFetchPending } = useFetch(`https://geocoding-api.open-meteo.com/v1/search?name=${`${weatherSearchParams}`}`);
     const { data: weatherFetchData, error: weatherFetchError, pending: weatherFetchPending } = useFetch(`https://api.open-meteo.com/v1/forecast?latitude=${selectedCity ? selectedCity.lat : 0}&longitude=${selectedCity ? selectedCity.long : 0}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,is_day`);
@@ -30,7 +30,7 @@ export default function Weather() {
         });
     }
 
-    console.log(citiesFetchData);
+    // console.log(citiesFetchData);
 
     function handleFetchWeather(e, id) {
 
@@ -60,8 +60,6 @@ export default function Weather() {
             };
         }
     }
-
-
 
     return (
         <div className="weather">

@@ -16,7 +16,8 @@ export default function useFetch(url, options = undefined) {
                 const response = await fetch(url, {...options});
                 if (!response.ok) throw new Error(response.statusText);
                 const result = await response.json();
-                // if (!result) throw new Error("The JSON data is empty.");
+                if (!result) throw new Error("The JSON data is empty.");
+                // console.log(result);
                 setData(result);
                 setError(null);
                 setPending(false);

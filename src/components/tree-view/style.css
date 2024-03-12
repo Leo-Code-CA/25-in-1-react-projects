@@ -1,0 +1,35 @@
+.treeView {
+	border: 0.05rem solid;
+	padding: 0.5rem;
+	border-radius: 0.3rem;
+}
+
+.treeView__list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.treeView__list li {
+	min-height: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.treeView__item {
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.5rem 0.5rem 0;
+}
+
+.treeView__list .treeView__list {
+	padding: 0.5rem 0.5rem 0.5rem 3rem;
+}
+
+.treeView__item span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -2,9 +2,10 @@ import { NavLink } from "react-router-dom";
 import ThemeSwitch from './../theme-switch/index.jsx';
 import ScrollTracker from './../scroll-tracker/index.jsx';
 import ToggleMenu from './../toggle-menu/index.jsx';
-import './style.css';
+import SearchBar from "../search-bar/index.jsx";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/index.jsx";
+import './style.css';
 
 export default function Navbar() {
 
@@ -58,6 +59,7 @@ export default function Navbar() {
                     </NavLink>
                     </li>
                 </ul>
+                <SearchBar />
                 <ThemeSwitch />
             </div>
             <ScrollTracker />

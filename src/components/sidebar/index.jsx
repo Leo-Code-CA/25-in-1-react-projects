@@ -12,7 +12,6 @@ export default function Sidebar() {
                 <h1>React N' Relax</h1>
                 <ToggleMenu />
             </div>
-            <SearchBar />
             <Weather />
             <TreeView />
         </div>

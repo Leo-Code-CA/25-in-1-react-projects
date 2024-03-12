@@ -1,0 +1,75 @@
+.githubFinder {
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.githubFinder .searchBar__inputWrapper {
+	border: 0.05rem solid;
+}
+
+.githubFinder__filters {
+}
+
+.githubFinder__radioWrapper {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.githubFinder__overview {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.githubFinder__overview h3 {
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.githubFinder__userTemplate {
+}
+
+.githubFinder__repoTemplate {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.githubFinder__repoDescription {
+	text-align: center;
+}
+
+.githubFinder__LanguageAndTopicsWrapper {
+	display: flex;
+	border: 0.05rem solid;
+	padding: 0.5rem;
+}
+
+.githubFinder__repoLanguage {
+	flex: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.githubFinder__repoTopics {
+	flex: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.githubFinder__repoLanguage dt,
+.githubFinder__repoTopics h5 {
+	font-size: 1rem;
+	font-weight: bold;
+}

@@ -7,8 +7,12 @@ export default function SearchBar({ searchBarInfo, handleSearch, dataList, searc
     return (
         <div className="searchBar">
              <form className="searchBar__form">
-                <label htmlFor={searchBarInfo?.id}>{searchBarInfo?.label}</label>
-                <div className={dataList && dataList.length > 2 && searchParams && searchParams.length > 2 ? "searchBar__inputWrapper searchBar__inputWrapper--active" : "searchBar__inputWrapper"}>
+                {
+                    searchBarInfo?.label ? 
+                    <label htmlFor={searchBarInfo?.id}>{searchBarInfo.label}</label>
+                    : null
+                }
+                <div className={dataList && dataList.length > 0 && searchParams && searchParams.length > 0 ? "searchBar__inputWrapper searchBar__inputWrapper--active" : "searchBar__inputWrapper"}>
                     <input 
                     type="text" 
                     name={searchBarInfo?.id} 

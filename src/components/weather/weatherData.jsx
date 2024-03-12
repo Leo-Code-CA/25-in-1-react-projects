@@ -1,11 +1,10 @@
 import { weatherCodes } from "./data.js";
-import * as weatherIcons from 'react-icons/wi';
+import * as WeatherIcons from 'react-icons/wi';
 
 export default function weatherCondition({ fetchState, weatherCondition, currentCity }) {
 
-    
-    const weatherIcon = `weatherIcons.${weatherCodes[weatherCondition?.current.weather_code].icon}`;
-    console.log(weatherIcon);
+    const iconName = weatherCodes[weatherCondition?.current.weather_code].icon;
+    const Icon = WeatherIcons[iconName];
 
     function getCurrentDate() {
 
@@ -40,13 +39,15 @@ export default function weatherCondition({ fetchState, weatherCondition, current
                 <span>{getCurrentDate().date}</span>
                 <span>{getCurrentDate().time}</span>
             </div>
-            <strong className="weather__temperature">{weatherCondition?.current["temperature_2m"]}
-                <span>&deg;C</span>
-            </strong>
-            <p className="weather__description">{weatherCodes ? weatherCodes[weatherCondition?.current.weather_code].description : null}</p>
-            <p>
-                <weatherIcon />
-            </p>
+            <div className="weather__tempAndIcon">
+                <strong className="weather__temperature">{weatherCondition?.current["temperature_2m"]}
+                    <span>&deg;C</span>
+                </strong>
+                <p className="weather__description">
+                    {weatherCodes ? weatherCodes[weatherCondition?.current.weather_code].description : null}
+                    <span className="weather__icon"><Icon /></span>
+                </p>
+            </div>
             <div className="weather__info">
                 <dl>
                     <dd className="wind">{weatherCondition?.current.wind_speed_10m}km/h</dd>
