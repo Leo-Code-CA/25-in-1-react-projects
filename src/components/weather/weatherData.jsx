@@ -1,57 +1,62 @@
 import { weatherCodes } from "./data.js";
+import * as weatherIcons from 'react-icons/wi';
 
-export default function WeatherData() {
+export default function weatherCondition({ fetchState, weatherCondition, currentCity }) {
+
+    
+    const weatherIcon = `weatherIcons.${weatherCodes[weatherCondition?.current.weather_code].icon}`;
+    console.log(weatherIcon);
 
     function getCurrentDate() {
-        return new Date().toLocaleDateString('en-us', {
+
+        const date = new Date(weatherCondition?.current.time).toLocaleDateString('en-us', {
             weekday: 'long',
             month: 'long',
             day: 'numeric',
-            year: 'numeric'
+            year: 'numeric',
+            timeZone: currentCity.timezone,
+            hour: 'numeric',
+            minute: 'numeric'
         });
+
+        const formatDate = date.split(" at ");
+
+        return {
+            date: formatDate[0],
+            time: formatDate[1]
+        };
     }
 
-    if (loading) return <p>Weather is currently loading!</p>;
+    if (fetchState().type === "loading") return <p>Weather is currently loading!</p>;
+    if (fetchState().type === "error") return <p>{fetchState().msg}</p>;
 
     return (
-        <div>
-            <h3 className="city-name">{weatherData ? 
-                `${weatherData?.cityInfo.name}, ${weatherData?.cityInfo.country}`
+        <div className="weather__data">
+            <h3>{currentCity ? 
+                `${currentCity?.name}, ${currentCity?.province} - ${currentCity?.country_short}`
                 : null }
             </h3>
-            <span className="weather-date">{getCurrentDate()}</span>
-            <p className="temperature">
-                {
-                    weatherData?.forecast.current["temperature_2m"]
-                }
-                <span>&deg;C</span>
-            </p>
-            <p className="weather-description">
-                {
-                    weatherCodes ? weatherCodes[weatherData?.forecast.current.weather_code] : null
-                }
-            </p>
-            <div className="weather-info">
-                <div className="weather-columns">
-                    <p className="wind">
-                        {
-                            weatherData?.forecast.current.wind_speed_10m
-                        }
-                        km/h
-                    </p>
-                    <p>Wind Speed</p>
-                </div>
-                <div className="weather-columns">
-                    <div>
-                        <p className="humidity">
-                            {
-                                weatherData?.forecast.current.relative_humidity_2m
-                            }
-                            %
-                        </p>
-                        <p>Humidity</p>
-                    </div>
-                </div>
+            <div className="weather__date">
+                <span>{getCurrentDate().date}</span>
+                <span>{getCurrentDate().time}</span>
             </div>
-        </div>);
+            <strong className="weather__temperature">{weatherCondition?.current["temperature_2m"]}
+                <span>&deg;C</span>
+            </strong>
+            <p className="weather__description">{weatherCodes ? weatherCodes[weatherCondition?.current.weather_code].description : null}</p>
+            <p>
+                <weatherIcon />
+            </p>
+            <div className="weather__info">
+                <dl>
+                    <dd className="wind">{weatherCondition?.current.wind_speed_10m}km/h</dd>
+                    <dt>Wind Speed</dt>
+                </dl>
+                <dl>
+                    <dd className="humidity">{weatherCondition?.current.relative_humidity_2m}%</dd>
+                    <dt>Humidity</dt>
+                </dl>
+            </div>
+        </div>
+    );
 }

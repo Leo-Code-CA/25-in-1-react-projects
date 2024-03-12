@@ -30,7 +30,7 @@ export default function useFetch(url, options = undefined) {
 
     }, [url, options]);
 
-    console.log(url, options);
+    // console.log(url, options);
 
     return { data, error, pending };
 
