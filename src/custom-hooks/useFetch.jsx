@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function useFetch(url, options = undefined) {
 
     const [data, setData] = useState(null);
     const [pending, setPending] = useState(false);
     const [error, setError] = useState(null);
+    const timeoutId = useRef(null);
+
+    function debounce(func, delay) {
+        clearTimeout(timeoutId.current);
+        timeoutId.current = setTimeout(func, delay);
+    }
 
     useEffect(() => {
 
@@ -27,7 +33,11 @@ export default function useFetch(url, options = undefined) {
             }
         }
 
-        fetchData();
+        debounce(fetchData, 1000);
+
+        return () => {
+            clearTimeout(timeoutId.current);
+        };
 
     }, [url, options]);
 
