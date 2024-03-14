@@ -49,4 +49,19 @@
 
 .colorGenerator__color {
     width: 100%;
+    height: 30vh;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.colorGenerator__color h3 {
+    font-size: 1.5rem;
+}
+
+.colorGenerator__color h4 {
+    font-size: 1rem;
 }
