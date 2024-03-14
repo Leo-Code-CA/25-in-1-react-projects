@@ -1,7 +1,8 @@
 .githubFinder {
-	width: 50%;
+	width: 60%;
 	margin: 0 auto;
-	border: 1px solid;
+	border: 0.07rem solid;
+	border-radius: 0.5rem;
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -12,7 +13,9 @@
 	border: 0.05rem solid;
 }
 
-.githubFinder__filters {
+.githubFinder__filters p {
+	font-weight: bold;
+	margin-bottom: 0.3rem;
 }
 
 .githubFinder__radioWrapper {
@@ -31,27 +34,139 @@
 	text-transform: capitalize;
 }
 
+/* USER TEMPLATE */
 .githubFinder__userTemplate {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
+.githubFinder__userTemplate h3 {
+	font-size: 1.5rem;
+}
+
+.githubFinder__userTemplate a {
+	text-decoration: none;
+	color: black;
+}
+
+.githubFinder__userTemplate h3 span {
+	font-size: 1rem;
+	font-weight: 200;
+}
+
+.githubFinder__userProfile {
+	display: flex;
+	align-items: center;
+	border: 0.05rem solid;
+	border-radius: 0.3rem;
+	padding: 0.5rem;
+	gap: 0.5rem;
+}
+
+.githubFinder__userProfile img {
+	flex: 30%;
+	max-width: 30%;
+}
+
+.githubFinder__userProfile div {
+	flex: 70%;
+}
+
+.githubFinder__userProfile b {
+	font-size: 1.3rem;
+	margin-bottom: 0.3rem;
+	display: block;
+}
+
+.githubFinder__userProfile div p {
+	margin-bottom: 0.5rem;
+}
+
+.githubFinder__userProfile div ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-left: 1rem;
+}
+
+.githubFinder__userRepos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.githubFinder__userSingleRepo {
+	border: 0.05rem solid;
+	flex: 20%;
+	aspect-ratio: 1 / 1;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	border-radius: 0.3rem;
+}
+
+.githubFinder__userSingleRepo h4 {
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.githubFinder__userSingleRepo em {
+	display: block;
+	text-align: center;
+}
+
+.githubFinder__userSingleRepo div {
+	display: flex;
+	gap: 0.3rem;
+}
+
+.githubFinder__userSingleRepo div dl {
+	flex: 50%;
+	border: 0.05rem solid;
+	border-radius: 0.1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.3rem 0.1rem;
+	gap: 0.2rem;
+}
+
+.githubFinder__userSingleRepo div dl dt {
+	font-weight: bold;
+}
+
+/* REPO TEMPLATE */
 .githubFinder__repoTemplate {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 }
 
+.githubFinder__repoTemplate h3 {
+	font-size: 1.5rem;
+}
+
+.githubFinder__repoTemplate h3 a {
+	text-decoration: none;
+	color: black;
+}
+
 .githubFinder__repoDescription {
 	text-align: center;
 }
 
-.githubFinder__LanguageAndTopicsWrapper {
+.githubFinder__repoDetails {
 	display: flex;
 	border: 0.05rem solid;
 	padding: 0.5rem;
+	border-radius: 0.3rem;
 }
 
-.githubFinder__repoLanguage {
-	flex: 50%;
+.githubFinder__repoData {
+	flex: 25%;
 	display: flex;
 	flex-direction: column;
 	gap: 0.3rem;
@@ -59,17 +174,60 @@
 	justify-content: center;
 }
 
-.githubFinder__repoTopics {
-	flex: 50%;
-	display: flex;
-	flex-direction: column;
-	gap: 0.3rem;
-	align-items: center;
-	justify-content: center;
-}
-
-.githubFinder__repoLanguage dt,
-.githubFinder__repoTopics h5 {
+.githubFinder__repoData dt,
+.githubFinder__repoData h5 {
 	font-size: 1rem;
 	font-weight: bold;
+}
+
+.githubFinder__repoOwner {
+	border: 0.05rem solid;
+	padding: 0.5rem;
+	border-radius: 0.3rem;
+}
+
+.githubFinder__repoOwner h4 {
+	font-size: 1.3rem;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.githubFinder__repoOwnerDetails {
+	display: flex;
+}
+
+.githubFinder__repoOwnerDetails svg {
+	width: 4rem;
+	height: 4rem;
+}
+
+.githubFinder__repoOwnerDetails img {
+	max-height: 6rem;
+	width: auto;
+	border-radius: 50%;
+}
+
+.githubFinder__repoOwnerDetails dt {
+	font-weight: bold;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.githubFinder__repoOwnerDetails dl {
+	flex: 33%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.githubFinder__repoOwnerDetails dl a {
+	text-decoration: none;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
 }

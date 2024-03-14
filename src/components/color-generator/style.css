@@ -1,0 +1,52 @@
+.colorGenerator {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.colorGenerator__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.colorGenerator__btn {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: white;
+    border: 0.05rem solid;
+    cursor: pointer;
+}
+
+.colorGenerator__switchWrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.colorGenerator__switch {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    border: 0.05rem solid;
+    position: relative;
+}
+
+.colorGenerator__switch button {
+    height: 100%;
+    background-color: aquamarine;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    transition: all .7s ease-out;
+}
+
+.colorGenerator__color {
+    width: 100%;
+}

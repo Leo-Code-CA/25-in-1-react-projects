@@ -7,15 +7,11 @@ import './style.css';
 export default function GithubFinder() {
 
     const [githubSearchParams, setGithubSearchParams] = useState('');
-    const [githubSearchBy, setGithubSearchBy] = useState(null);
+    const [githubSearchBy, setGithubSearchBy] = useState('repo');
     const [userSelection, setUserSelection] = useState(null);
     const { data: githubfetchData, error: githubFetchError, pending: githubFetchPending } = useFetch(handleApiEndpoint(githubSearchParams));
 
-    console.log(githubfetchData);
-    // ADD FOR REPO: contributors_url: created_at: homepage: pushed_at: "
-
-    // console.log(githubfetchData, githubFetchError, githubFetchPending);
-    console.log(handleApiEndpoint(githubSearchParams));
+    // console.log(githubfetchData);
 
     function handleDataListFormatting() {
         const { items: githubFetchResult } = githubfetchData ?? {};
@@ -29,21 +25,24 @@ export default function GithubFinder() {
                     string: `${data?.name} - ${data?.owner?.login}`,
                     user: {
                         name: data?.owner?.login,
-                        avatar: data?.owner?.avatar_url
+                        avatar: data?.owner?.avatar_url,
+                        type: data?.owner?.type,
+                        url: data?.owner?.html_url
                     },
                     topics: data?.topics,
-                    url: data?.url,
+                    url: data?.html_url,
                     language: data?.language,
-                    website: data?.homepage
+                    website: data?.homepage,
+                    created: data?.created_at,
+                    archieved: data?.archieved
                 });
             });
         } else if (githubFetchResult && githubSearchBy === 'user') {
             githubFetchResult.map((data) => {
                 gitHubDataList.push({
-                    name: data?.login,
+                    username: data?.login,
                     id: data?.id,
                     string: data?.login,
-                    org: data?.organizations_url,
                     url: data?.url,
                     repos: data?.repos_url,
                     avatar: data?.avatar_url
@@ -53,8 +52,6 @@ export default function GithubFinder() {
         return gitHubDataList;
     }
 
-    // console.log(handleDataListFormatting());
-
     function handleApiEndpoint(params) {
         if (params && params.length > 0) {
             const endpointInfo = githubSearchBy === 'user' ?
@@ -63,7 +60,10 @@ export default function GithubFinder() {
             const url = `http://api.github.com/search/${endpointInfo.endoint}?q=${endpointInfo.params}`;
             return url;
         } else {
-            const url = `http://api.github.com/search/users?q=leo-code-ca`;
+            const defaultEndpoint = githubSearchBy === 'user' ?
+            { endoint: 'users', params: `user:leo-code-ca in:login`} 
+            : { endoint: 'repositories', params: `25-in-1-react-projects in:name` };
+            const url = `http://api.github.com/search/${defaultEndpoint.endoint}?q=${defaultEndpoint.params}`;
             return url;
         }
     }
@@ -71,23 +71,13 @@ export default function GithubFinder() {
     function handleFetchSpecificGithubData(e, id) {
         !id && e.preventDefault();
         const selectedData = id ? handleDataListFormatting().find(data => data.id === id) : handleDataListFormatting()[0];
-        console.log(selectedData);
         setUserSelection(selectedData ? selectedData : "");
         setGithubSearchParams("");
     }
 
     return (
         <div className="githubFinder">
-            <SearchBar
-            searchBarInfo={{
-                id: "githubsearchbar",
-                placeholder: "React",
-                label: "Search on GitHub:"
-            }}
-            handleSearch={handleFetchSpecificGithubData}
-            dataList={handleDataListFormatting()}
-            searchParams={githubSearchParams}
-            setSearchParams={setGithubSearchParams} />
+            <h2>Github Finder</h2>
             <div className='githubFinder__filters'>
                 <p htmlFor="githubfinderfilter">Do you want to search by user or by repo?</p>
                 <div className='githubFinder__radioWrapper'>
@@ -98,6 +88,7 @@ export default function GithubFinder() {
                     name='githubfilter' 
                     value="user"
                     onChange={(e) => e.target.checked && setGithubSearchBy(e.target.value)}
+                    checked={githubSearchBy === 'user'}
                     />
                     <label htmlFor="githubrepo">Repo</label>
                     <input 
@@ -105,14 +96,24 @@ export default function GithubFinder() {
                     type='radio' 
                     name='githubfilter' 
                     value="repo"
-                    onChange={(e) => e.target.checked && setGithubSearchBy(e.target.value)}/>
+                    onChange={(e) => e.target.checked && setGithubSearchBy(e.target.value)}
+                    checked={githubSearchBy === 'repo'}/>
                 </div>
             </div>
+            <SearchBar
+            searchBarInfo={{
+                id: "githubsearchbar",
+                placeholder: "React",
+                label: "Search on GitHub:"
+            }}
+            handleSearch={handleFetchSpecificGithubData}
+            dataList={handleDataListFormatting()}
+            searchParams={githubSearchParams}
+            setSearchParams={setGithubSearchParams} />
             {
                 userSelection ? 
                 <GithubOverview 
-                error={githubFetchError}
-                pending={githubFetchPending} 
+                fetchState={githubFetchPending ? 'pending' : githubFetchError ? 'error' : null}
                 currentGithubData={userSelection}
                 template={githubSearchBy} />
                 : null

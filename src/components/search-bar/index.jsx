@@ -19,7 +19,8 @@ export default function SearchBar({ searchBarInfo, handleSearch, dataList, searc
                     id={searchBarInfo?.id}
                     placeholder={searchBarInfo?.placeholder}
                     value={searchParams} 
-                    onChange={(e) => setSearchParams(e.target.value)}>
+                    onChange={(e) => setSearchParams(e.target.value)}
+                    autoComplete="off">
                     </input>
                     <button 
                     type="submit"
