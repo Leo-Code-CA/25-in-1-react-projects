@@ -25,14 +25,28 @@
     border: 0.05rem solid;
 }
 
-.qrcode__input button {
+.qrcode__input button, .qrcode__input a {
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
     border: none;
     background-color: lavender;
-    cursor: pointer;
+    text-decoration: none;
+    color: rgb(132, 132, 132);
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .qrcode__result {
 
+}
+
+.qrcode__btnWrapper {
+    display: flex;
+    gap: 1rem;
+}
+
+.qrcode__input .qrcode__btnActive {
+    color: black;
+    box-shadow: 0 0 0.1rem 0.1rem rgb(177, 177, 202);
+    cursor: pointer;
 }
