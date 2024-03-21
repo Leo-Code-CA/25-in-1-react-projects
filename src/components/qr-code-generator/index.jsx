@@ -15,32 +15,37 @@ export default function QrCodeGenerator() {
     }
 
     function handleSvgToPng(svg) {
-      
-        // create an url to access qr code svg
-        const svgData = new XMLSerializer().serializeToString(svg);
-        const blob = new Blob([svgData], { type: "image/svg+xml" });
-        const svgDataUrl = URL.createObjectURL(blob);
-      
-        // create png image and give it the appropriate source and dimensions
-        const image = new Image();
-        image.src = svgDataUrl;
-      
-        image.addEventListener('load', () => {
 
-          const canvas = document.createElement('canvas');
-          canvas.setAttribute('width', 300);
-          canvas.setAttribute('height', 300);
-      
-          const context = canvas.getContext('2d');
-          context.drawImage(image, 0, 0, 300, 300);
-   
-          const uri = canvas.toDataURL('image/png').replace('image/png', 'octet/stream');
+        // create a canvas element and give it a size
+        const canvas = document.createElement('canvas');
+        canvas.width = 300;
+        canvas.height = 300;
 
-          setPng(uri);
-          setQrCodeValue("");
+        // SVG to XML format, create blob and URL
+        const data = new XMLSerializer().serializeToString(svg);
+        const blob = new Blob([data], { type: 'image/svg+xml' });
+        const win = window.URL;
+        const url = win.createObjectURL(blob);
+        const img = new Image();
+        img.src = url;
 
-          URL.revokeObjectURL(uri);
+        // get the png ready for download
+        img.addEventListener('load', () => {
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            win.revokeObjectURL(url);
+            const uri = canvas.toDataURL('image/png').replace('image/png', 'octet/stream');
+            const a = document.createElement('a');
+            document.body.appendChild(a);
+            a.style = 'display: none';
+            a.href = uri;
+            a.download = 'qrcode.png';
+            a.click();
+            window.URL.revokeObjectURL(uri);
+            document.body.removeChild(a);
         });
+
+        // reset the qr code value
+        setQrCodeValue("");
 
     }
 
@@ -63,13 +68,12 @@ export default function QrCodeGenerator() {
                     disabled={inputValue && inputValue.trim() !== '' ? false : true}>
                         Generate
                     </button>
-                    <a 
+                    <button 
                     className={qrCodeValue && qrCodeValue.length > 0 ? "qrcode__btnActive" : null}
-                    href={qrCodeValue && qrCodeValue.length > 0 ? png : null}
-                    download={'qrcode.png'}
-                    onClick={() => handleSvgToPng(svg?.current)}>
-                        Download
-                    </a>
+                    onClick={() => handleSvgToPng(svg?.current)}
+                    disabled={qrCodeValue !== '' ? false : true}>
+                        Download PNG
+                    </button>
                 </div>
             </div>
             <div className="qrcode__result">

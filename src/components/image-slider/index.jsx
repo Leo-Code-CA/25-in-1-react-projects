@@ -2,14 +2,15 @@ import { useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 import useFetch from "../../custom-hooks/useFetch";
 import SearchBar from "../search-bar";
-// import './style.css';
+import './style.css';
 
 export default function ImageSlider() {
 
     const [currentSlide, setCurrentSlide] = useState(0);
     const [userInput, setUserInput] = useState('');
     const [dogBreed, setDogBreed] = useState({ breed: 'sheepdog', sub_breed: 'shetland' });
-    const { data: dogBreedData, error: dogBreedError, pending: dogBreedPending } = useFetch(`https://dog.ceo/api/breed/${dogBreed.breed}${dogBreed.sub_breed && `/${dogBreed.sub_breed}`}/images/random/10`);const { data: dogListData, error: dogListError, pending: dogListPending } = useFetch(`https://dog.ceo/api/breeds/list/all`);
+    const { data: dogListData, error: dogListError, pending: dogListPending } = useFetch(`https://dog.ceo/api/breeds/list/all`);
+    const { data: dogBreedImages, error: dogBreedImagesError, pending: dogBreedImagesPending } = useFetch(`https://dog.ceo/api/breed/${dogBreed.breed}${dogBreed.sub_breed && `/${dogBreed.sub_breed}`}/images/random/10`);
 
     let formattedBreedList = [];
 
@@ -29,22 +30,22 @@ export default function ImageSlider() {
         }
     }
 
-    // console.log(formattedBreedList);
-    console.log(dogBreed);
-    console.log(dogBreedData);
+    // console.log(userInput);
+    // console.log(dogBreed);
+    console.log(dogBreedImages);
 
     function handleDogBreedChoice(e, id = null) {
 
         if (!id && formattedBreedList.length > 0) {
             e.preventDefault();
-            // WRONG HERE YOU NEED TO FILTER THE BREED LIST FIRST DEPENDING ON THE USER INPUT! :)
-            const space = formattedBreedList[0].name.indexOf(' ');
+            const filteredBreedList = formattedBreedList.filter(breed => breed?.name.startsWith(userInput));
+            const space = filteredBreedList[0].name.indexOf(' ');
             setDogBreed(space === - 1 ? {
-                breed: formattedBreedList[0].name,
+                breed: filteredBreedList[0].name,
                 sub_breed: ''
             } : {
-                breed: formattedBreedList[0].name.slice(space + 1),
-                sub_breed: formattedBreedList[0].name.slice(0, space)
+                breed: filteredBreedList[0].name.slice(space + 1),
+                sub_breed: filteredBreedList[0].name.slice(0, space)
             });
         } else if (id && formattedBreedList.length > 0) {
             const findBreed = formattedBreedList.find(breed => breed.id === id);
@@ -93,38 +94,41 @@ export default function ImageSlider() {
                 setSearchParams={setUserInput}
                 />
             </div>
-            {/* <BsArrowLeftCircleFill 
-            // onClick={handlePrevious}
-            className="arrow arrow-left"/>
-            {
-                images && images.length ? 
-                images.map((imageItem, index) =>
-                    <img
-                    key={imageItem.id}
-                    alt={imageItem.download_url}
-                    src={imageItem.download_url}
-                    className={currentSlide === index ? "current-image" : "current-image hide-current-image"}
-                    />
-                )
-                : null
-            }  */}
-            {/* <BsArrowRightCircleFill 
-            onClick={handleNext}
-            className="arrow arrow-right"
-            /> */}
-            <span className="circle-indicators">
-                {/* {
-                    images && images.length ?
-                    images.map((_, index) =>
+            <div className="imageSlider__imgWrapper">
+                <button>
+                    <BsArrowLeftCircleFill />
+                </button>
+                {
+                    dogBreedImages && dogBreedImages.message && dogBreedImages.message.length > 0 ? 
+                    dogBreedImages.message.map((imageItem, index) =>
+                        <div 
+                        className={currentSlide === index ? "imageSlider__img imageSlider__img--active" : "imageSlider__img"}
+                        key={imageItem.slice(imageItem.lastIndexOf('/') + 1, imageItem.lastIndexOf('.'))}>
+                            <img
+                            alt={dogBreed.sub_breed ? `${dogBreed.sub_breed} ${dogBreed.breed}` : dogBreed.breed}
+                            src={imageItem}
+                            />
+                        </div>
+                    )
+                    : null
+                }
+                <button>
+                    <BsArrowRightCircleFill />
+                </button>
+            </div>
+            <div className="imageSlider__indicatorsWrapper">
+                {
+                    dogBreedImages && dogBreedImages.message && dogBreedImages.message.length > 0 ?
+                    dogBreedImages.message.map((_, index) =>
                         <button
                         key={index}
-                        className={currentSlide === index ? "current-indicator" : "current-indicator inactive-indicator"}
-                        onClick={() => setCurrentSlide(index)}
+                        className={currentSlide === index ? "imageSlider__indicator imageSlider__indicator--active" : "imageSlider__indicator"}
+                        // onClick={() => setCurrentSlide(index)}
                         ></button>
                     )
                     : null
-                }; */}
-            </span>
+                }
+            </div>
         </div>
     );
 }

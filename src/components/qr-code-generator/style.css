@@ -25,7 +25,7 @@
     border: 0.05rem solid;
 }
 
-.qrcode__input button, .qrcode__input a {
+.qrcode__input button {
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
     border: none;

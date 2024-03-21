@@ -1,0 +1,66 @@
+.imageSlider {
+    border: 0.05rem solid;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.imageSlider__imgWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 70%;
+}
+
+.imageSlider__imgWrapper button {
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.imageSlider__imgWrapper button svg {
+    height: 100%;
+    width: 100%;
+}
+
+.imageSlider__img {
+    display: none;
+    border-radius: 0.4rem;
+    overflow: hidden;
+}
+
+.imageSlider__img img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.imageSlider__img.imageSlider__img--active {
+    display: block;
+}
+
+.imageSlider__indicatorsWrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.imageSlider__indicator {
+    height: 0.7rem;
+    width: 0.7rem;
+    background-color: transparent;
+    border: 0.05rem solid;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.imageSlider__indicator.imageSlider__indicator--active {
+    background-color: aquamarine;
+}
