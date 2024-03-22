@@ -30,10 +30,6 @@ export default function ImageSlider() {
         }
     }
 
-    // console.log(userInput);
-    // console.log(dogBreed);
-    console.log(dogBreedImages);
-
     function handleDogBreedChoice(e, id = null) {
 
         if (!id && formattedBreedList.length > 0) {
@@ -59,29 +55,13 @@ export default function ImageSlider() {
             });
         }
 
+        setUserInput('');
+
     }
-
-
-    // function handlePrevious() {
-    //     setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
-    // }
-
-    // function handleNext() {
-    //     setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
-    // }
-
-
-    // if (loading) {
-    //     return <div>Loading data! Please wait...</div>;
-    // }
-
-    // if (errorMsg !== null) {
-    //     return <div>Error occured! {errorMsg}</div>;
-    // }
 
     return (
         <div className="imageSlider">
-            <div>
+            <div className="imageSlider__searchBar">
                 <SearchBar 
                 searchBarInfo={{
                     label: 'Enter the name of your favorite dog breed',
@@ -95,7 +75,8 @@ export default function ImageSlider() {
                 />
             </div>
             <div className="imageSlider__imgWrapper">
-                <button>
+                <button 
+                onClick={() => setCurrentSlide(s => s === 0 ? dogBreedImages?.message?.length - 1 : s - 1)}>
                     <BsArrowLeftCircleFill />
                 </button>
                 {
@@ -112,7 +93,8 @@ export default function ImageSlider() {
                     )
                     : null
                 }
-                <button>
+                <button
+                onClick={() => setCurrentSlide(s => s === dogBreedImages?.message?.length - 1 ? 0 : s + 1)}>
                     <BsArrowRightCircleFill />
                 </button>
             </div>
@@ -123,7 +105,7 @@ export default function ImageSlider() {
                         <button
                         key={index}
                         className={currentSlide === index ? "imageSlider__indicator imageSlider__indicator--active" : "imageSlider__indicator"}
-                        // onClick={() => setCurrentSlide(index)}
+                        onClick={() => setCurrentSlide(index)}
                         ></button>
                     )
                     : null

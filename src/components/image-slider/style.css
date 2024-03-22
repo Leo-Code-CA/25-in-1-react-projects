@@ -9,9 +9,14 @@
     align-items: center;
 }
 
+.imageSlider__searchBar .searchBar__inputWrapper {
+    border: 0.05rem solid;
+}
+
 .imageSlider__imgWrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     width: 70%;
 }
@@ -34,13 +39,19 @@
     display: none;
     border-radius: 0.4rem;
     overflow: hidden;
+    aspect-ratio: 3 / 2;
+    height: 50vh;
+    position: relative;
+    z-index: -1;
 }
 
 .imageSlider__img img {
     object-fit: cover;
-    height: auto;
-    width: 100%;
-    vertical-align: bottom;
+    height: 100%;
+    width: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
 }
 
 .imageSlider__img.imageSlider__img--active {
