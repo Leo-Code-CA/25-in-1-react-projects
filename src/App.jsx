@@ -10,6 +10,8 @@ import Plan from './pages/plan.jsx';
 import { useContext } from "react";
 import { GlobalContext } from "./context/index.jsx";
 
+// check that about cleanup affer fetch: https://react.dev/learn/synchronizing-with-effects
+
 export default function App() {
 
     const { sideBarOpen } = useContext(GlobalContext);

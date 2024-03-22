@@ -1,14 +1,10 @@
-export default function GameBoard({ xIsNext, currentGameDisplay, onPlay }) {
+export default function GameBoard({ xIsNext, currentGameDisplay, onPlay, onRestart }) {
 
     function handleClick(currentSquare) {
         if (getWinner(currentGameDisplay) || currentGameDisplay[currentSquare]) return;
         const copySquares = [...currentGameDisplay];
         copySquares[currentSquare] = xIsNext ? 'X' : 'O';
-        const currentSquareLocation = currentSquare < 3 ? { line: 1, col: currentSquare + 1 }
-                                    : currentSquare < 6 ? { line: 2, col: (currentSquare + 1) - 3 }
-                                    : { line: 3, col: (currentSquare + 1) - 6};
-                                    console.log(currentSquareLocation);
-        onPlay(copySquares, currentSquareLocation);
+        onPlay(copySquares);
     }
 
     function getWinner(squares) {
@@ -25,7 +21,6 @@ export default function GameBoard({ xIsNext, currentGameDisplay, onPlay }) {
         for (let i = 0; i < winningPatterns.length; i++) {
             const [x, y, z] = winningPatterns[i];
             if(squares[x] && squares[x] === squares[y] && squares[x] === squares[z]) {
-                // console.log(winningPatterns[i]);
                 return {
                     winner: squares[x],
                     winningPattern: winningPatterns[i]
@@ -61,17 +56,14 @@ export default function GameBoard({ xIsNext, currentGameDisplay, onPlay }) {
         row.push(<div className="ticTacToe__row" key={i}>{squares}</div>);
     }
 
-    // function handleRestart() {
-    //     setIsXTurn(true);
-    //     setSquares(Array(9).fill(""));
-    // }
-
     return (
         <>
             <div className='ticTacToe__gameBoard'>
                 <h3 className='ticTacToe__status'>{currentGameDisplay && currentGameDisplay.length > 0 ? handleCurrentStatus() : null}</h3>
-                { row.map(row => row) }
-                {/* <button onClick={handleRestart}>Restart</button> */}
+                <div className="ticTacToe__squaresWrapper">
+                    { row.map(row => row) }
+                </div>
+                <button className="ticTacToe__restart" onClick={onRestart}>Restart Game</button>
             </div>
         </>
     );
