@@ -1,9 +1,45 @@
-            // return /^([a-f\d])([a-f\d])([a-f\d])$/gi.test('0033ff');
+import './twitchEmbed.js';
+import './youtubeEmbed.js';
+import { useEffect, useRef } from 'react';
+
+export default function VideoPlayer({ id, options, type }) {
+
+    // const twitchRef = useRef(null);
+    // const youtubeRef = useRef(null);
+
+    useEffect(() => {
+
+        // const videoElem = twitchRef.current;
+
+        let ytPlayer;
+
+        function handleEmbedVideo() {
+
+            if (type === 'twitch') {
+                new Twitch.Embed(id, options);
+            } else {
+               ytPlayer = new YT.Player(id, options);
+            }
+
+        }
+
+        handleEmbedVideo();
+
+        if (type === 'youtube') return ytPlayer.destroy();
+
+        // if (type === 'twitch' && videoElem) {
+        //     console.log('I am in the return function');
+        //     return () => videoElem.innerHTML = '';
+        // }
+
+    }, [id, options, type]);
 
 
-            // return hex
-            //             .replace(/(^#?)([a-f\d])([a-f\d])([a-f\d])$/i,
-            //             'PPPPPPP');
-                        // (h, r, g, b) => r + r + g + g + b + b);
-                        // .match(/.{2}/g);
-                        // .map(x => parseInt(x, 16));
+
+
+    return (
+        type === 'twitch' ? <div id={id}></div> : <div id={id}></div>
+    );
+
+
+}

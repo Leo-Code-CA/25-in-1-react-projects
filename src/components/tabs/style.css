@@ -14,7 +14,7 @@
     border-bottom: 0.05rem solid;
 }
 
-.tabs__heading button {
+.tabs__selector {
     flex: 1;
     border: 0.05rem solid;
     border-bottom: none;
@@ -25,8 +25,12 @@
     cursor: pointer;
 }
 
-.tabs__heading button:hover {
+.tabs__selector:hover {
     background-color: aquamarine;
+}
+
+.tabs__selector.tabs__selector--active {
+    background-color: lavender;
 }
 
 .tabs__content {

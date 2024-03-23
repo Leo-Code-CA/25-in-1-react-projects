@@ -4,29 +4,23 @@ import { useEffect, useRef } from 'react';
 
 export default function VideoPlayer({ id, options, type }) {
 
-    console.log(id, options, type);
-
-    const videoRef = useRef(null);
+    const twitchRef = useRef(null);
 
     useEffect(() => {
 
-        const videoElem = videoRef.current;
-
-        async function handleEmbedVideo() {
-
-            type === 'twitch' ? await new Twitch.Embed(id, options)
-            : await new YT.Player(id, options);
-
+        if (type === 'youtube') {
+            const ytPlayer = new YT.Player(id, options);
+            return () => ytPlayer.destroy();
+        } else {
+            new Twitch.Embed(id, options);
+            return () => twitchRef ? twitchRef.current.innerHTML = '' : null;
         }
-
-        handleEmbedVideo();
-
-        return () => videoElem.innerHTML = '';
 
     }, [id, options, type]);
 
     return (
-        <div ref={videoRef} id={id}></div>
+        <div id={id} ref={twitchRef}></div>
     );
+
 
 }

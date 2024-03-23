@@ -78,6 +78,7 @@ export default function Tabs() {
                 <button
                 key={tab.key}
                 onClick={() => setCurrentTabIndex(i)}
+                className={currentTabIndex === i ? 'tabs__selector tabs__selector--active' : 'tabs__selector'}
                 >
                     {tab.name}
                 </button>)
